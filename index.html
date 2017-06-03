@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" ng-app="icloub">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="index.js"></script>
+    <title>icloub</title>
+</head>
+<body ng-controller="mainCtrl">
+<!--左列表-->
+<div class="left-box">
+    <div class="top">
+        <span class="logo"></span>
+        <span class="word">提醒事项</span>
+        <span class="plus" ng-click="add()"></span>
+    </div>
+    <div class="plan">
+        <span class="clock"></span>
+        <span class="planed">已计划</span>
+    </div>
+    <ng-color-ul>
+        <li date-attr="{{v.id}}" class="{{v.theme}}" ng-click="change(v)" ng-repeat="v in things">
+            <div class="cir"></div>
+            <div class="content">
+                <span class="til">{{v.title}}</span>
+                <input type="text" ng-model="v.title">
+                <span class="share"></span>
+            </div>
+        </li>
+    </ng-color-ul>
+</div>
+
+<!--右列表-->
+<div class="right-box">
+    <div class="input">
+        <span class="search"></span>
+        <input type="text" placeholder="搜索所有提醒">
+    </div>
+    <div class="new-event">
+        <span class="new-list" ng-class="current.theme" >{{current.title}}</span>
+        <span class="change" ng-class="current.theme" >选项</span>
+    </div>
+    <div class="complete">
+        <span class="overflow"></span>
+        <span class="com">已完成:  <span>{{completedPlus()}}</span> 项</span>
+    </div>
+    <ul class="completed">
+        <li ng-repeat="v in current.todos|filter:{isFin:1}" date-id="{{v.id}}">
+            <div class="bor">
+                <div class="cir" ng-class="current.theme" ng-click="v.isFin=0"></div>
+                <span class="events">
+                    <input class="inp" type="text" value="{{v.title}}">
+                    <span class="del" ng-class="current.theme" ng-click="delete(v.id)">删除</span>
+                </span>
+            </div>
+        </li>
+    </ul>
+    <ng-list-ul>
+        <li class="back"  ng-repeat="v in current.todos|filter:{isFin:0}" date-id="{{v.id}}">
+            <div class="backg" ng-class="current.theme">
+                <div class="bor-top"></div>
+                <div class="mid"></div>
+                <div class="bor-bot"></div>
+            </div>
+            <div class="bor">
+                <div class="cir" ng-class="current.theme" ng-click="v.isFin=1"></div>
+                <span class="events">
+                    <input class="inp" type="text" value="{{v.title}}">
+                    <span class="del" ng-class="current.theme" ng-click="delete(v.id)">删除</span>
+                </span>
+            </div>
+        </li>
+    </ng-list-ul>
+    <div class="push">
+        <span>新项目...</span>
+    </div>
+</div>
+<!--设置-->
+<div class="set">
+    <div class="set-mid">
+        <input ng-class="current.theme" type="text" ng-model="current.title">
+        <span class="list-color">列表颜色</span>
+        <div class="colors">
+            <div class="color" ng-repeat="v in setcolors" date-id="{{v.id}}"  ng-click="current.theme=v.color;v.id=current.id">
+                <div class="notcir" ng-class="v.color"></div>
+                <div class="cir" ng-class="v.color"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <span class="one" ng-click="del(current.id)">删除</span>
+            <span class="two" ng-click="current.theme=cancel(current.id)">取消</span>
+            <span class="three" ng-click="com()">完成</span>
+        </div>
+    </div>
+    <div class="sanjiao"></div>
+</div>
+
+
+</body>
+</html>

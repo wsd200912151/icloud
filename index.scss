@@ -1,0 +1,588 @@
+@import 'mixins';
+*{
+  @include clear-style;
+  box-sizing:border-box;
+  font-family:Helvetica,sans-serif;
+  font-size:0.16rem;
+  outline: none;
+  font-family:'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+}
+@font-face{
+  font-family: SFNSDisplay ;
+  src:url(word/SFNSDisplay-Light.woff);
+}
+@font-face{
+  font-family: SFNSText ;
+  src:url(word/SFNSText-Light.woff);
+}
+//左边导航栏
+  .left-box{
+    width:390px;
+    background:#383836;
+    position: absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+    overflow:auto;
+  }
+
+  .right-box{
+    min-width:500px;
+    width:calc(100vw - 390px);
+    background:url(images/bg.png);
+    position:absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+    left:390px;
+    overflow:auto;
+  }
+.left-box{
+  .top{
+    font-family:'SFNSDisplay';
+    width:100%;
+    height:45px;
+    //border-bottom:1px solid #1a1a1a;
+    position: relative;
+    span.logo{
+      width:56px;
+      height:16px;
+      display:inline-block;
+      margin-top:15px;
+      margin-left:10px;
+      background:url(images/packed-5.png) no-repeat left -588px;
+      cursor: pointer;
+    }
+    span.word{
+      line-height:45px;
+      margin-left:6px;
+      color:#999;
+      font-size:21px;
+      cursor: pointer;
+      &:hover{
+        color:#bbb;
+      }
+    }
+    span.plus{
+      width:23px;
+      height:23px;
+      position: absolute;
+      top:0;
+      bottom:0;
+      right:10px;
+      margin: auto;
+      cursor: pointer;
+      background:url(images/packed-5.png) no-repeat -46px -526px;
+      &:hover{
+        background:url(images/packed-5.png) no-repeat -92px -526px;
+      }
+    }
+  }
+}
+.left-box {
+  .plan {
+    width:100%;
+    height:45px;
+    padding-left:4px;
+    border-bottom:1px solid #2a2a28;
+    position: relative;
+    span.clock{
+      width:42px;
+      height:42px;
+      display: inline-block;
+      background:url(images/packed-5.png) no-repeat 0px -359px;
+    }
+    span.planed{
+      position: absolute;
+      top:0;
+      bottom:0;
+      margin: auto;
+      font-size:17px;
+      color:#fff;
+      line-height:45px;
+    }
+  }
+  ul.uls{
+    width:100%;
+    height:auto;
+    border-top:1px solid #3e3e3c;
+    li{
+      width:100%;
+      height:45px;
+      padding-left:4px;
+      position: relative;
+      div.cir{
+        width:17px;
+        height:17px;
+        position: absolute;
+        top:0;
+        bottom:0;
+        margin:auto;
+        left:16px;
+        background:url(images/packed-5.png) no-repeat -102px -571px;
+      }
+      div.content{
+        width:344px;
+        height:45px;
+        position: absolute;
+        top:0;
+        right:0;
+        border-bottom:1px solid #2a2a28;
+        border-top:1px solid #3e3e3c;
+        &.topst{
+          border-top:0;
+        }
+        span.til,input{
+          width:302px;
+          height:24px;
+          position: absolute;
+          top:0;
+          bottom:0;
+          margin:auto;
+          left:0;
+          font-size: 17px;
+          color:#fff;
+          line-height:24px;
+          background: transparent;
+        }
+        span.share{
+          width:23px;
+          height:23px;
+          position: absolute;
+          top:0;
+          bottom:0;
+          margin:auto;
+          right:10px;
+          cursor: pointer;
+          background:url(images/packed-5.png) no-repeat -119px -497px;
+          &:hover{
+            background:url(images/packed-5.png) no-repeat 0px -526px;
+          }
+        }
+        input{
+          display: none;
+        }
+      }
+
+      &.dblclick{
+        div.content{
+          span.til{
+            display:none;
+          }
+          input{
+            display:block;
+          }
+        }
+      }
+      &.bg{
+        background:#2D2D2B;
+        border-top: 1px solid #262625;
+        border-bottom: 1px solid #3e3e3c;
+        div.content {
+          border-bottom: 0;
+          border-top: 0;
+        }
+      }
+      &.prevtop{
+        div.content{
+          border-bottom:0;
+        }
+      }
+      &.nextbottom{
+        div.content{
+          border-top:0;
+        }
+      }
+    }
+  }
+}
+$bg:("color1":-102px -571px,"color2":-51px -571px,"color3":-34px -571px,"color4":0px -571px,"color5":-85px -571px,"color6":-133px -549px,"color7":-68px -571px);
+$kong:("color1":-136px -235px,"color2":0px -433px,"color3":-64px -401px,"color4":-74px -359px,"color5":-32px -465px,"color6":-32px -433px,"color7":-96px -433px);
+$shi:("color1":0px -401px,"color2":-106px -359px,"color3":-128px -401px,"color4":-136px -199px,"color5":-128px -433px,"color6":-136px -167px,"color7":-64px -433px);
+$color:("color1":#ff7f00,"color2":#1badf8,"color3":#b14bc9,"color4":#49bf1f,"color5":#e0ac00,"color6":#a2845e,"color7":#ff2968);
+$set-notcir:("color1":0px -381px,"color2":0px -281px,"color3":0px -231px,"color4":0px -256px,"color5":0px -306px,"color6":0px -331px,"color7":0px -356px);
+$set-cir:("color1":0px -198px,"color2":0px -66px,"color3":0px 0px,"color4":0px -33px,"color5":0px -99px,"color6":0px -132px,"color7":0px -165px);
+
+
+//#ff7f00 #1badf8 #b14bc9 #49bf1f #e0ac00 #a2845e #ff2968
+.left-box .uls li{
+  @each $lia in map_keys($bg) {
+    &.#{$lia}{
+      div.cir{
+        background:url(images/packed-5.png) no-repeat map_get($bg,$lia);
+      }
+    }
+  }
+}
+
+//搜索
+.right-box{
+  .input{
+    width:100%;
+    height:45px;
+    border-bottom:1px solid #cdcdcd;
+    position:relative;
+    span.search{
+      width:24px;
+      height:24px;
+      display: inline-block;
+      background:url(images/packed-5.png) no-repeat -138px -359px;
+      margin-top:10px;
+      margin-left:10px;
+    }
+    input{
+      position: absolute;
+      width:432px;
+      height:45px;
+      top:0;
+      left:45px;
+      background: transparent;
+      font-size:19px;
+      color:#333;
+    }
+  }
+}
+//选项
+.right-box{
+  .new-event{
+    margin-left:28px;
+    width:calc(100% - 28px);
+    height:85px;
+    border-bottom:1px solid #e0e0e0;
+    span{
+      color:#ff7f00;
+      font-family:'宋体';
+        @each $lia in map_keys($color) {
+          &.#{$lia}{
+            color:map_get($color,$lia);
+          }
+        }
+    }
+    span.new-list{
+      font-size:40px;
+      line-height:52px;
+      margin-top:23px;
+      display: inline-block;
+    }
+    span.change{
+      font-size:19px;
+      line-height:30px;
+      margin-top:42px;
+      margin-right:28px;
+      float:right;
+      cursor: pointer;
+      &:hover{
+        opacity:0.6;
+      }
+    }
+  }
+}
+//已完成
+.right-box{
+  .complete{
+    border-top:1px solid #fff;
+    border-bottom:1px solid #e0e0e0;
+    box-shadow:0px 1px 0px #fff;
+    width:calc(100% - 28px);
+    height:52px;
+    margin-left:28px;
+    position: relative;
+    span.overflow{
+      width:23px;
+      height:23px;
+      display: inline-block;
+      background:url(images/packed-5.png) no-repeat -96px -497px;
+      margin:14px;
+    }
+    span.block{
+      background:url(images/packed-5.png) no-repeat -23px -526px;
+    }
+    span{
+      font-size:19px;
+      color:#999;
+    }
+    span.com{
+      position: absolute;
+      display: block;
+      top:15px;
+      left:51px;
+    }
+  }
+}
+
+//已完成事项
+.right-box{
+  ul.completed,ul.completing{
+    width:100%;
+    height:auto;
+    float:left;
+    margin-bottom:0;
+    li{
+      width:100%;
+      height:52px;
+      position: relative;
+      div.bor{
+        position: absolute;
+        z-index: 10;
+        width:calc(100% - 28px);
+        height:52px;
+        margin-left:28px;
+        border-top:1px solid #fff;
+        border-bottom:1px solid #e0e0e0;
+        box-shadow:0px 1px 0px #fff;
+        .cir{
+          width:32px;
+          height:32px;
+          float:left;
+          margin:9px;
+          @each $lia in map_keys($shi) {
+            &.#{$lia}{
+                background:url(images/packed-5.png) no-repeat map_get($shi,$lia);
+            }
+          }
+        }
+        span.events{
+          width:calc(100% - 52px);
+          height:52px;
+          float:left;
+          input.inp{
+            width:calc(100% - 100px);
+            font-size:19px;
+            color:#333;
+            line-height:50px;
+            background: transparent;
+          }
+          span.del{
+            font-size:19px;
+            color:#ff7f00;
+            line-height:52px;
+            float:right;
+            margin-right:20px;
+            @each $lia in map_keys($color) {
+              &.#{$lia}{
+                color:map_get($color,$lia);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.right-box .completed{
+  display:none;
+  &.overflow{
+    display:block;
+  }
+}
+.right-box .completing li{
+  div.backg{
+    width:100%;
+    height:52px;
+    position: absolute;
+    top:0;
+    left:0;
+    &.hide{
+      display:none;
+    }
+    @each $lia in map_keys($color) {
+      &.#{$lia}{
+        div.mid{
+          width:100%;
+          height:50px;
+          background:map_get($color,$lia);
+          opacity: 0.1;
+          position: absolute;
+          top:1px;
+          left:0;
+        }
+        div.bor-top{
+          width:100%;
+          height:1px;
+          background:map_get($color,$lia);
+          position: absolute;
+          top:0px;
+          left:0;
+          z-index: 1;
+          z-index:20;
+        }
+        div.bor-bot{
+          width:100%;
+          height:1px;
+          background:map_get($color,$lia);
+          position: absolute;
+          top:51px;
+          left:0;
+          z-index:20;
+        }
+      }
+    }
+  }
+}
+.right-box .completing{
+  margin-top:20px;
+  li.back{
+    div.bor{
+      border:0;
+      box-shadow:0 0 0 rgba(255,255,255,0);
+      .cir{
+        @each $lia in map_keys($kong) {
+          &.#{$lia}{
+              background:url(images/packed-5.png) no-repeat map_get($kong,$lia);
+          }
+        }
+      }
+      span.events {
+        border-bottom:1px solid #e0e0e0;
+        box-shadow:0px 1px 0px #fff;
+      }
+    }
+  }
+}
+.right-box div.push{
+  border-bottom:1px solid #e0e0e0;
+  box-shadow:0px 1px 0px #fff;
+  width:calc(100% - 28px - 51px);
+  height:52px;
+  margin-left:79px;
+  float:left;
+  span{
+    line-height:52px;
+    color:#999;
+    font-size:19px;
+  }
+}
+//设置
+$set-notcir:("color1":0px -381px,"color2":0px -281px,"color3":0px -231px,"color4":0px -256px,"color5":0px -306px,"color6":0px -331px,"color7":0px -356px);
+$set-cir:("color1":0px -198px,"color2":0px -66px,"color3":0px 0px,"color4":0px -33px,"color5":0px -99px,"color6":0px -132px,"color7":0px -165px);
+
+.set{
+  width:355px;
+  height:226px;
+  background:#fff;
+  position:absolute;
+  z-index:100;
+  top:2vh;
+  right:14vh;
+  border-radius:10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  .set-mid{
+    @include juzhong;
+    width:97%;
+    height:95%;
+    border-radius:8px;
+    border:1px solid #e5e5e6;
+    input{
+      width:314px;
+      height:42px;
+      border:1px solid #d9d9d9;
+      border-radius: 2px;
+      font-size:25px;
+      margin-top:18px;
+      margin-bottom:20px;
+      margin-left:15px;
+      padding-left:10px;
+      @each $lia in map_keys($color) {
+        &.#{$lia}{
+          color:map_get($color,$lia);
+        }
+      }
+    }
+    span.list-color{
+      font-size:15px;
+      color:#000;
+      margin-left:15px;
+    }
+    .colors{
+      width:330px;
+      height:33px;
+      margin-left:15px;
+      margin-top:16px;
+      div.color{
+        width:33px;
+        height:33px;
+        position: relative;
+        float:left;
+        margin-right:10px;
+        .notcir{
+          position: absolute;
+          width:25px;
+          height:25px;
+          top:4px;
+          left:4px;
+          @each $lia in map_keys($set-notcir) {
+            &.#{$lia}{
+              background:url(images/stylesheet-1.png) no-repeat map_get($set-notcir,$lia);
+            }
+          }
+        }
+        .cir{
+          display: none;
+          position: absolute;
+          top:0;
+          left:0;
+          width:33px;
+          height:33px;
+          @each $lia in map_keys($set-cir) {
+            &.#{$lia}{
+              background:url(images/stylesheet-1.png) no-repeat map_get($set-cir,$lia);
+            }
+          }
+          &.block{
+            display: block;
+          }
+        }
+      }
+    }
+    .bottom{
+      width:100%;
+      height:23%;
+      position: absolute;
+      bottom:0;
+      border-top:1px solid #d9d9d9;
+      span{
+        width:50px;
+        height:25px;
+        font-size:18px;
+        position: absolute;
+        top:30%;
+        display: block;
+        cursor:pointer;
+      }
+      span.one{
+        color:#ff3b30;
+        left:15px;
+      }
+      span.two{
+        color:#1590f7;
+        left:65%;
+        border-right:1px solid #d9d9d9;
+      }
+      span.three{
+        color:#1590f7;
+        font-weight:600;
+        left:85%;
+      }
+    }
+  }
+}
+.set.block{
+  display: none;
+}
+.sanjiao{
+  width:33px;
+  height:15px;
+  position: absolute;
+  z-index: 99;
+  top:13vh;
+  right:-24px;
+  background:url(images/packed-5.png) no-repeat -80px -604px;
+  transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  &.block{
+    display: none;
+  }
+}
+
